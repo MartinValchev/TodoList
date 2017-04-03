@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bg.java.toDoList.entites.Task;
 import bg.java.toDoList.services.TaskService;
@@ -25,7 +26,9 @@ public class deleteTaskServlet extends HttpServlet {
 			String taskRecord = request.getParameter("taskRecord");
 			TaskService taskService = new TaskService();
 			taskService.deleteTask(taskRecord);
-			ArrayList<Task> taskList =taskService.getTasks();
+			HttpSession session = request.getSession();
+			int user_id = (int) session.getAttribute("user_id");
+			ArrayList<Task> taskList =taskService.getTasks(user_id);
 			request.getSession().setAttribute("tasks", taskList);
 			response.sendRedirect("/TodoList/jspNotSecured/taskDeleted.jsp");
 		} catch (ClassNotFoundException e) {

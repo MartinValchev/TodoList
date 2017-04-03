@@ -23,7 +23,7 @@
 		</div>
 	</div>
 	<br><br>
-<p><a href="/TodoList/html/index.html" style="color:yellow;" class="btn btn-primary" >Return to main page</a></p>
+<p><a href="/html/index.html" style="color:yellow;" class="btn btn-primary" >Return to main page</a></p>
 	<p>
 	<div class="panel-body">
 	<ul style="list-style-type: none">

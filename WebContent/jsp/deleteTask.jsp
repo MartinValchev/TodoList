@@ -26,5 +26,8 @@
 			<br> <input type="submit" value="Delete Task">
 		</div>
 	</form>
+	<p>	<form action="/menu.jsp" method="get">
+			<input type="submit" value="return to Main Menu">
+		</form></p>
 </body>
 </html>

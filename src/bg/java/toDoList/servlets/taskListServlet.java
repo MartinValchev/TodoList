@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bg.java.toDoList.entites.Task;
 import bg.java.toDoList.services.TaskService;
@@ -23,7 +24,9 @@ public class taskListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			taskService= new TaskService(); 
-			ArrayList<Task> taskList =taskService.getTasks();
+			HttpSession session = request.getSession();
+			int user_id = (int) session.getAttribute("user_id");
+			ArrayList<Task> taskList =taskService.getTasks(user_id);
 			request.getSession().setAttribute("tasks", taskList);
 			response.sendRedirect("/TodoList/jsp/todoList.jsp");
 		} catch (ClassNotFoundException e) {

@@ -23,13 +23,11 @@ public class TaskService {
 		task.setDescription(desc);
 		task.setTaskStatus(taskStatus);
 		instance.addTaskRecord(task,user_id);
-		instance.disconnect();
 	}
 
-	public ArrayList<Task> getTasks() {
+	public ArrayList<Task> getTasks(int user_id) {
 		try {
-			ArrayList<Task> taskList = instance.getTaskRecords();
-			instance.disconnect();
+			ArrayList<Task> taskList = instance.getTaskRecords(user_id);
 			return taskList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -41,7 +39,6 @@ public class TaskService {
 	public void deleteTask(String taskRecord) {
 		try {
 			instance.deleteTaskRecord(taskRecord);
-			instance.disconnect();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +47,6 @@ public class TaskService {
 
 	public ArrayList<Task> getCompletedTasks() {
 		ArrayList<Task> taskList = instance.getCompletedTaskRecords();
-		instance.disconnect();
 		return taskList;
 	}
 }

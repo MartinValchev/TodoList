@@ -17,7 +17,6 @@ public class DatabaseConnection {
 	static final String DB_URL = "jdbc:mysql://localhost:3306/todo_database";
 	// private String addTask ="INSERT INTO tasks
 	// (task_name,due_date,description) VALUES (?)";
-	private String getTasks = "SELECT * FROM `tasks` WHERE task_status=\"pending\" ORDER by id ASC;";
 	// Database credentials
 	static final String USER = "root";
 	static final String PASS = "admin";
@@ -102,10 +101,15 @@ public class DatabaseConnection {
 		statement.close();
 	}// end main
 
-	public ArrayList<Task> getTaskRecords() throws SQLException {
+	public ArrayList<Task> getTaskRecords(int user_id) throws SQLException {
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery(getTasks);
+			StringBuilder builder = new StringBuilder();
+			builder.append("SELECT * FROM `tasks` WHERE task_status=\"pending\" AND user_id=");
+			builder.append(user_id);
+			builder.append(" ");
+			builder.append("ORDER by id ASC;");
+			ResultSet rs = statement.executeQuery(builder.toString());
 			ArrayList<Task> taskRecords = new ArrayList<Task>();
 			while (rs.next()) {
 				int id = rs.getInt("id");

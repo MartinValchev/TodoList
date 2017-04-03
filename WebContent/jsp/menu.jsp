@@ -20,7 +20,7 @@
 	%>
 	<h2 class="panel-heading">Welcome to My ToDo List Menu</h2>
 	<div class="panel-body">
-		<p>user: <%=request.getSession().getAttribute("username") %>></p>
+		<p class="text-primary">user: <%=request.getSession().getAttribute("username") %></p>
 		<div>
 			<form method="post" action="/TodoList/Dispatcher">
 				<ul style="list-style-type: none">

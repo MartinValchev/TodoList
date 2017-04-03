@@ -35,7 +35,7 @@
 			</c:forEach>
 		</table>
 		<br></br>
-		<form action="/TodoList/jsp/menu.jsp" method="get">
+		<form action="/menu.jsp" method="get">
 			<input type="submit" value="return to Main Menu">
 		</form>
 	</div>

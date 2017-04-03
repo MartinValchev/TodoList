@@ -49,14 +49,14 @@
 		</div>
 	</div>
 		<br><br>
-			<p><a href="/TodoList/html/index.html" style="color:yellow;" class="btn btn-primary" >Return to main page</a></p>
+			<p><a href="TodoList/html/index.html" style="color:yellow;" class="btn btn-primary" >Return to main page</a></p>
 
 	<div class="panel-body">
 	<ul style="list-style-type: none">
 		<c:forEach items="${errorMessages}" var="errorMessage">
 			<li style="color:red;">${errorMessage}</li>
 			<br>	
-	</c:forEach>
+		</c:forEach>
 	</ul>
 	</div>
 </body>
