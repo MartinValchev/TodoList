@@ -8,12 +8,12 @@ import bg.java.toDoList.JDBC.DatabaseConnection;
 import bg.java.toDoList.entites.Task;
 
 public class TaskService {
-	private static DatabaseConnection instance;
+	private DatabaseConnection instance;
 	Task task;
 
 	public TaskService() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		task = new Task();
-		instance = new DatabaseConnection();
+		ServletContext sc
 	}
 
 	public void addTask(String taskName, Date dueDate, String desc,String taskStatus,int user_id)
@@ -22,6 +22,7 @@ public class TaskService {
 		task.setDueDate(dueDate);
 		task.setDescription(desc);
 		task.setTaskStatus(taskStatus);
+		
 		instance.addTaskRecord(task,user_id);
 	}
 

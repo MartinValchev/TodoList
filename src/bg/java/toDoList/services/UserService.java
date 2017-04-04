@@ -5,17 +5,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
-import bg.java.toDoList.JDBC.DatabaseConnection;
+import bg.java.toDoList.JDBC.DatabaseOperations;
 import bg.java.toDoList.entites.User;
 
 public class UserService {
-	private DatabaseConnection instance;
+	private DatabaseOperations instance;
 	User user;
 
 	public UserService()
 	 {		
 		user = new User();
-		instance = new DatabaseConnection();
+		instance = new DatabaseOperations();
 
 	}
 

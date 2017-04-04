@@ -3,7 +3,6 @@ package bg.java.toDoList.JDBC;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,18 +11,17 @@ import java.util.ArrayList;
 import bg.java.toDoList.entites.Task;
 import bg.java.toDoList.entites.User;
 
-public class DatabaseConnection {
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/todo_database";
+public class DatabaseOperations {
+	//static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	//static final String DB_URL = "jdbc:mysql://localhost:3306/todo_database";
 	// private String addTask ="INSERT INTO tasks
 	// (task_name,due_date,description) VALUES (?)";
 	// Database credentials
-	static final String USER = "root";
-	static final String PASS = "admin";
-	private Statement stmt = null;
-	private Connection conn;
+	//static final String USER = "root";
+	//static final String PASS = "admin";
+	//private Connection conn;
 
-	public DatabaseConnection() {
+	public DatabaseOperations() {
 		try {
 			connect();
 		} catch (InstantiationException e) {
